@@ -1,73 +1,150 @@
-# Welcome to your Lovable project
+# What Next Guidance
 
-## Project info
+A modern task management and guidance application built with React, TypeScript, and Supabase.
 
-**URL**: https://lovable.dev/projects/b67b2750-a8eb-4ca2-a774-fa794e3735bc
+## 🚀 Features
 
-## How can I edit this code?
+- **Task Management**: Create, edit, and organize your tasks
+- **User Authentication**: Secure login and registration with Supabase
+- **Modern UI**: Beautiful interface built with shadcn/ui components
+- **Responsive Design**: Works seamlessly on desktop and mobile
+- **Real-time Updates**: Live data synchronization with Supabase
 
-There are several ways of editing your application.
+## 🛠️ Tech Stack
 
-**Use Lovable**
+- **Frontend**: React 18 + TypeScript
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS
+- **UI Components**: shadcn/ui + Radix UI
+- **Backend**: Supabase (Database, Auth, Real-time)
+- **Routing**: React Router DOM
+- **Forms**: React Hook Form + Zod validation
+- **State Management**: TanStack Query
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/b67b2750-a8eb-4ca2-a774-fa794e3735bc) and start prompting.
+## 📋 Prerequisites
 
-Changes made via Lovable will be committed automatically to this repo.
+Before running this project, make sure you have:
 
-**Use your preferred IDE**
+- **Node.js** (v18 or higher) - [Download here](https://nodejs.org/)
+- **npm** (comes with Node.js)
+- **Git** - [Download here](https://git-scm.com/)
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 🚀 Getting Started
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### 1. Clone the Repository
 
-Follow these steps:
+```bash
+git clone https://github.com/YOUR_USERNAME/what-next-guidance.git
+cd what-next-guidance
+```
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### 2. Install Dependencies
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+```bash
+npm install
+```
 
-# Step 3: Install the necessary dependencies.
-npm i
+### 3. Environment Setup
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+Create a `.env` file in the root directory and add your Supabase credentials:
+
+```env
+VITE_SUPABASE_URL=your_supabase_url
+VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+VITE_SUPABASE_PROJECT_ID=your_project_id
+```
+
+### 4. Start Development Server
+
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+The application will be available at `http://localhost:8080`
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 📜 Available Scripts
 
-**Use GitHub Codespaces**
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## 🏗️ Project Structure
 
-## What technologies are used for this project?
+```
+src/
+├── components/          # Reusable UI components
+│   ├── ui/             # shadcn/ui components
+│   ├── TaskDialog.tsx  # Task creation/editing dialog
+│   ├── TaskList.tsx    # Task list component
+│   └── ProtectedRoute.tsx # Authentication guard
+├── hooks/              # Custom React hooks
+├── integrations/       # External service integrations
+│   └── supabase/       # Supabase client and types
+├── lib/                # Utility functions
+├── pages/              # Page components
+│   ├── Auth.tsx        # Authentication page
+│   ├── Dashboard.tsx   # Main dashboard
+│   ├── Index.tsx       # Landing page
+│   └── NotFound.tsx    # 404 page
+└── main.tsx           # Application entry point
+```
 
-This project is built with:
+## 🌐 Deployment
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### Deploy to Vercel (Recommended)
 
-## How can I deploy this project?
+1. Push your code to GitHub
+2. Go to [vercel.com](https://vercel.com)
+3. Import your GitHub repository
+4. Add environment variables in Vercel dashboard
+5. Deploy!
 
-Simply open [Lovable](https://lovable.dev/projects/b67b2750-a8eb-4ca2-a774-fa794e3735bc) and click on Share -> Publish.
+### Deploy to Netlify
 
-## Can I connect a custom domain to my Lovable project?
+1. Push your code to GitHub
+2. Go to [netlify.com](https://netlify.com)
+3. Connect your GitHub repository
+4. Set build command: `npm run build`
+5. Set publish directory: `dist`
+6. Add environment variables
+7. Deploy!
 
-Yes, you can!
+### Environment Variables for Production
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+Make sure to set these in your hosting platform:
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+- `VITE_SUPABASE_URL`
+- `VITE_SUPABASE_ANON_KEY`
+- `VITE_SUPABASE_PROJECT_ID`
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature/amazing-feature`
+3. Commit your changes: `git commit -m 'Add amazing feature'`
+4. Push to the branch: `git push origin feature/amazing-feature`
+5. Open a Pull Request
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- [shadcn/ui](https://ui.shadcn.com/) for the beautiful UI components
+- [Supabase](https://supabase.com/) for the backend infrastructure
+- [Vite](https://vitejs.dev/) for the fast build tool
+- [Tailwind CSS](https://tailwindcss.com/) for the utility-first CSS framework
+
+## 📞 Support
+
+If you have any questions or need help, please:
+
+1. Check the [Issues](https://github.com/YOUR_USERNAME/what-next-guidance/issues) page
+2. Create a new issue if your problem isn't already reported
+3. Contact the maintainers
+
+---
+
+Made with ❤️ using React, TypeScript, and modern web technologies.

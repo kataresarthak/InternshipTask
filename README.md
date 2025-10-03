@@ -1,10 +1,10 @@
 # Frontend Developer Task
 
-A modern task management and guidance application built with React, TypeScript, and Supabase for the Frontend Developer position at Bajarangs.
+A modern task management and guidance application built with React, TypeScript, and Supabase
 
 ## 🚀 Project Overview
 
-This project demonstrates a full-stack task management application with user authentication, CRUD operations, and modern UI/UX design. The application showcases proficiency in React, TypeScript, modern CSS frameworks, and backend integration.
+This project demonstrates a full-stack task management application with user authentication, CRUD operations, and modern UI/UX design.
 
 ## 📁 Project Structure
 

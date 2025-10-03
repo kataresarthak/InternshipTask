@@ -1,0 +1,397 @@
+{
+	"info": {
+		"_postman_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+		"name": "What Next Guidance API",
+		"description": "API collection for the What Next Guidance task management application",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Register User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"user@example.com\",\n  \"password\": \"password123\",\n  \"full_name\": \"John Doe\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/v1/signup",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"v1",
+								"signup"
+							]
+						},
+						"description": "Register a new user account"
+					}
+				},
+				{
+					"name": "Login User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"user@example.com\",\n  \"password\": \"password123\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/v1/token?grant_type=password",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"v1",
+								"token"
+							],
+							"query": [
+								{
+									"key": "grant_type",
+									"value": "password"
+								}
+							]
+						},
+						"description": "Login with email and password"
+					}
+				},
+				{
+					"name": "Get User Profile",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/auth/v1/user",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"v1",
+								"user"
+							]
+						},
+						"description": "Get current user profile information"
+					}
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/auth/v1/logout",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"v1",
+								"logout"
+							]
+						},
+						"description": "Logout current user"
+					}
+				}
+			]
+		},
+		{
+			"name": "Tasks",
+			"item": [
+				{
+					"name": "Get All Tasks",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/rest/v1/tasks?select=*",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"rest",
+								"v1",
+								"tasks"
+							],
+							"query": [
+								{
+									"key": "select",
+									"value": "*"
+								}
+							]
+						},
+						"description": "Get all tasks for the authenticated user"
+					}
+				},
+				{
+					"name": "Create Task",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Prefer",
+								"value": "return=representation"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Complete project documentation\",\n  \"description\": \"Write comprehensive documentation for the project\",\n  \"status\": \"pending\",\n  \"priority\": \"high\",\n  \"due_date\": \"2024-01-15T10:00:00Z\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/rest/v1/tasks",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"rest",
+								"v1",
+								"tasks"
+							]
+						},
+						"description": "Create a new task"
+					}
+				},
+				{
+					"name": "Get Task by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/rest/v1/tasks?id=eq.{{task_id}}&select=*",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"rest",
+								"v1",
+								"tasks"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "eq.{{task_id}}"
+								},
+								{
+									"key": "select",
+									"value": "*"
+								}
+							]
+						},
+						"description": "Get a specific task by ID"
+					}
+				},
+				{
+					"name": "Update Task",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Prefer",
+								"value": "return=representation"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Updated task title\",\n  \"description\": \"Updated task description\",\n  \"status\": \"in_progress\",\n  \"priority\": \"medium\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/rest/v1/tasks?id=eq.{{task_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"rest",
+								"v1",
+								"tasks"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "eq.{{task_id}}"
+								}
+							]
+						},
+						"description": "Update a specific task"
+					}
+				},
+				{
+					"name": "Delete Task",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/rest/v1/tasks?id=eq.{{task_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"rest",
+								"v1",
+								"tasks"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "eq.{{task_id}}"
+								}
+							]
+						},
+						"description": "Delete a specific task"
+					}
+				},
+				{
+					"name": "Search Tasks",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/rest/v1/tasks?title=ilike.*{{search_term}}*&select=*",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"rest",
+								"v1",
+								"tasks"
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "ilike.*{{search_term}}*"
+								},
+								{
+									"key": "select",
+									"value": "*"
+								}
+							]
+						},
+						"description": "Search tasks by title"
+					}
+				},
+				{
+					"name": "Filter Tasks by Status",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/rest/v1/tasks?status=eq.{{status}}&select=*",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"rest",
+								"v1",
+								"tasks"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "eq.{{status}}"
+								},
+								{
+									"key": "select",
+									"value": "*"
+								}
+							]
+						},
+						"description": "Filter tasks by status (pending, in_progress, completed)"
+					}
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "https://mpzlycsjsgecgaahcjbr.supabase.co",
+			"type": "string"
+		},
+		{
+			"key": "access_token",
+			"value": "your_access_token_here",
+			"type": "string"
+		},
+		{
+			"key": "task_id",
+			"value": "your_task_id_here",
+			"type": "string"
+		},
+		{
+			"key": "search_term",
+			"value": "search",
+			"type": "string"
+		},
+		{
+			"key": "status",
+			"value": "pending",
+			"type": "string"
+		}
+	]
+}

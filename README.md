@@ -1,4 +1,4 @@
-# Modern Task Manager
+# Task Manager
 
 A modern task management and guidance application built with React, TypeScript, and Supabase
 

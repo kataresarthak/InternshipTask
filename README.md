@@ -1,4 +1,4 @@
-# Frontend Developer Task
+# Modern Task Manager
 
 A modern task management and guidance application built with React, TypeScript, and Supabase
 
